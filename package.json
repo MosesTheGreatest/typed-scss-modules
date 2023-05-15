@@ -1,16 +1,17 @@
 {
-  "name": "typed-scss-modules",
+  "name": "stg-typed-scss-modules",
   "version": "0.0.0",
   "description": "TypeScript type definition generator for SCSS CSS Modules",
   "main": "dist/lib/index.js",
   "types": "dist/lib/index.d.ts",
   "author": "Spencer Miskoviak <smiskoviak@gmail.com>",
   "license": "MIT",
+  "private": true,
   "repository": {
     "type": "git",
-    "url": "https://github.com/skovy/typed-scss-modules.git"
+    "url": "https://github.com/MosesTheGreatest/typed-scss-modules"
   },
-  "homepage": "https://github.com/skovy/typed-scss-modules.git#readme",
+  "homepage": "https://github.com/MosesTheGreatest/typed-scss-modules#readme",
   "keywords": [
     "scss",
     "css modules",
