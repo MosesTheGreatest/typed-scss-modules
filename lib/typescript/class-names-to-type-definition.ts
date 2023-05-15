@@ -62,15 +62,14 @@ export const classNamesToTypeDefinitions = async (
     const lines: string[] = [];
 
     const {
-      exportTypeName: ClassNames = exportTypeNameDefault,
       exportTypeInterface: Styles = exportTypeInterfaceDefault,
     } = options;
 
     switch (options.exportType) {
       case "default":
-        if (options.banner) lines.push(options.banner);
+        if (options.banner) lines.push(options.banner.replace('\\\n', '${os.EOL}'));
 
-        lines.push(`export type ${Styles} = {`);
+        lines.push(`interface ${Styles} = {`);
         lines.push(
           ...options.classNames.map((className) =>
             classNameToType(className, options.quoteType || quoteTypeDefault)
@@ -78,9 +77,8 @@ export const classNamesToTypeDefinitions = async (
         );
         lines.push(`};${os.EOL}`);
 
-        lines.push(`export type ${ClassNames} = keyof ${Styles};${os.EOL}`);
-        lines.push(`declare const styles: ${Styles};${os.EOL}`);
-        lines.push(`export default styles;`);
+        lines.push(`export const cssExports: ${Styles};${os.EOL}`);
+        lines.push(`export default cssExports;`);
 
         break;
       case "named":
